@@ -8,9 +8,9 @@ const services = [
   {
     icon: Wrench,
     step: "01",
-    title: "Reparacion de hardware",
+    title: "Construccion de PCs",
     description:
-      "Cambio de piezas, soldadura fina y pruebas termicas para recuperar estabilidad sin comprometer potencia.",
+      "Te ayudamos a elegir componentes segun tu presupuesto y objetivos, y armamos tu equipo optimizado para rendimiento, estabilidad y futuras mejoras.",
     iconColorClassName: "text-accent",
     glowColorClassName: "bg-accent/20",
     glowPosition: "top-right" as const,
