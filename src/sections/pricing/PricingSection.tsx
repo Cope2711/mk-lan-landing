@@ -6,42 +6,73 @@ import { PricingTierCard } from "./PricingTierCard";
 import { QuickQuoteInput } from "./QuickQuoteInput";
 
 export function PricingSection() {
+  const [quickQuoteData, setQuickQuoteData] = React.useState({
+    name: "",
+    whatsapp: "",
+    model: "",
+    issue: "",
+  });
+
+  type QuickQuoteFieldKey = keyof typeof quickQuoteData;
+
   const pricingTiers = [
     {
       label: "Plan inicial",
-      price: "Desde $35",
+      price: "Desde $100",
       description: "Diagnostico completo con reporte tecnico.",
       className: "border border-accent/45 bg-accent/15",
       labelClassName: "text-accent",
     },
     {
       label: "Mantenimiento",
-      price: "Desde $50",
+      price: "Desde $150",
       description: "Limpieza interna, ajuste termico y optimizacion base.",
       className: "border border-secondary/45 bg-secondary/15",
       labelClassName: "text-secondary",
     },
     {
       label: "Reparacion avanzada",
-      price: "Desde $80",
+      price: "A definir",
       description: "Precio final segun pieza, marca y complejidad.",
       className: "border border-primary-foreground/20 bg-primary-foreground/6",
       labelClassName: "text-primary-foreground/60",
     },
   ];
 
-  const quickQuoteFields = [
-    { placeholder: "Nombre" },
-    { placeholder: "WhatsApp" },
-    { placeholder: "Modelo del equipo", className: "sm:col-span-2" },
-    { placeholder: "Falla principal", className: "sm:col-span-2" },
+  const quickQuoteFields: Array<{ key: QuickQuoteFieldKey; placeholder: string; className?: string }> = [
+    { key: "name", placeholder: "Nombre" },
+    { key: "whatsapp", placeholder: "WhatsApp" },
+    { key: "model", placeholder: "Modelo del equipo", className: "sm:col-span-2" },
+    { key: "issue", placeholder: "Falla principal", className: "sm:col-span-2" },
   ];
+
+  const handleQuickQuoteFieldChange = (field: keyof typeof quickQuoteData, value: string) => {
+    setQuickQuoteData((previousData) => ({
+      ...previousData,
+      [field]: value,
+    }));
+  };
+
+  const handleQuickQuoteEmail = () => {
+    const subject = "Nueva cotizacion rapida";
+    const body = [
+      "Solicitud de cotizacion",
+      "",
+      `Nombre: ${quickQuoteData.name || "No especificado"}`,
+      `WhatsApp: ${quickQuoteData.whatsapp || "No especificado"}`,
+      `Modelo del equipo: ${quickQuoteData.model || "No especificado"}`,
+      `Falla principal: ${quickQuoteData.issue || "No especificado"}`,
+    ].join("\n");
+
+    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent("josejim8@gmail.com")}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailComposeUrl, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <section id="pricing" className="relative overflow-hidden bg-primary py-24">
       <div className="absolute inset-0 bg-[linear-gradient(160deg,var(--border)_1px,transparent_1px)] bg-[length:26px_26px] opacity-20" />
       <div className="container relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading title="Precios o cotizacion rapida" subtitle="Desde $35 o formulario breve" />
+        <SectionHeading title="Precios o cotizacion rapida" subtitle="Desde $100 o formulario breve" />
 
         <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
           <div className="space-y-4">
@@ -61,12 +92,18 @@ export function PricingSection() {
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/65">Formulario breve</p>
             <div className="grid gap-3 sm:grid-cols-2">
               {quickQuoteFields.map((field) => (
-                <QuickQuoteInput key={field.placeholder} placeholder={field.placeholder} className={field.className} />
+                <QuickQuoteInput
+                  key={field.key}
+                  placeholder={field.placeholder}
+                  className={field.className}
+                  value={quickQuoteData[field.key]}
+                  onChange={(event) => handleQuickQuoteFieldChange(field.key, event.target.value)}
+                />
               ))}
             </div>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-primary-foreground/65">Respuesta estimada en menos de 30 minutos.</p>
-              <Button className="h-11 rounded-full bg-accent px-7 font-semibold text-accent-foreground hover:bg-accent/90">
+              <Button onClick={handleQuickQuoteEmail} className="h-11 rounded-full bg-accent px-7 font-semibold text-accent-foreground hover:bg-accent/90">
                 Pedir cotizacion
               </Button>
             </div>
