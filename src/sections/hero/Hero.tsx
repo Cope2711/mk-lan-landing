@@ -13,7 +13,7 @@ export function Hero() {
       <div className="container relative z-10 mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
         <div>
           <p className="mb-5 inline-flex rounded-full border border-accent/40 bg-accent/15 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.26em] text-primary-foreground/85">
-            MKLAN TECH LAB
+            AD TECH LAB
           </p>
 
           <h1 className="text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl">

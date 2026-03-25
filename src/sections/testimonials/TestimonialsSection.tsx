@@ -87,7 +87,7 @@ export function TestimonialsSection() {
           </div>
 
           <aside className="rounded-3xl border border-primary-foreground/20 bg-primary-foreground/6 p-6 backdrop-blur-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/65">Compromiso MKLAN</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/65">Compromiso AD</p>
             <h3 className="mt-3 text-2xl font-semibold text-primary-foreground">Lo que siempre recibes</h3>
             <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70">
               Sin puntuaciones infladas: te mostramos procesos, evidencia y respaldo real en cada servicio.

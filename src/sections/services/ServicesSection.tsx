@@ -57,7 +57,7 @@ export function ServicesSection() {
           subtitle="Intervenciones precisas con diagnostico por capas, proteccion activa y puesta a punto enfocada en rendimiento real."
         >
           <p className="mb-3 inline-flex rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
-            Laboratorio MKLAN
+            Laboratorio AD
           </p>
         </SectionHeading>
 

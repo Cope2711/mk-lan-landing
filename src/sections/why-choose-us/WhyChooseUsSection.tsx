@@ -13,8 +13,8 @@ const trustItems = [
   },
   {
     step: "02",
-    title: "Garantia",
-    description: "Cada servicio queda respaldado con pruebas y registro para seguimiento posterior.",
+    title: "Resultados confiables",
+    description: "Aplicamos diagnostico y validaciones para entregar resultados consistentes y confiables.",
     borderClassName: "border-secondary/55",
     badgeClassName: "bg-secondary/20 text-secondary",
   },

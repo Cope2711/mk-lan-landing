@@ -1,5 +1,4 @@
 import React from "react";
-import { Sparkles } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -20,14 +19,14 @@ export function BrandMark({
     <div className={cn("flex items-center gap-2", className)}>
       <span
         className={cn(
-          "flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground",
+          "flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border border-primary-foreground/20 bg-primary-foreground/5",
           iconWrapClassName
         )}
       >
-        <Sparkles className={cn("h-5 w-5", iconClassName)} />
+        <img src="/logo.webp" alt="Advance Digital logo" className={cn("h-full w-full object-cover", iconClassName)} loading="lazy" />
       </span>
       <span className={cn("font-bold tracking-tight", textClassName)}>
-        MK<span className="text-accent">LAN</span>
+        A<span className="text-accent">D</span>
       </span>
     </div>
   );

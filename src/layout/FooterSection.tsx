@@ -1,10 +1,13 @@
 import React from "react";
 import { Phone, MessageCircle, MapPin } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 import { BrandMark } from "../shared/BrandMark";
 import { SITE_NAV_LINKS } from "../shared/siteNavLinks";
 
 export function FooterSection() {
+  const defaultWhatsappUrl = buildWhatsAppUrl();
+
   return (
     <footer className="relative overflow-hidden border-t border-primary-foreground/15 bg-primary py-9">
       <div className="absolute inset-0 bg-[linear-gradient(140deg,var(--border)_1px,transparent_1px)] bg-[length:24px_24px] opacity-20" />
@@ -37,22 +40,26 @@ export function FooterSection() {
             <ul className="mt-3 space-y-2 text-sm text-primary-foreground/80">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-accent" />
-                <span>+51 999 999 999</span>
+                <a href={defaultWhatsappUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent">+52 662 160 9375</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-accent" />
+                <a href={defaultWhatsappUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent">+52 662 329 6985</a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4 text-secondary" />
-                <span>WhatsApp directo</span>
+                <a href={defaultWhatsappUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent">WhatsApp directo</a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-accent" />
-                <span>Lima Centro</span>
+                <span>Cobertura en norte de Hermosillo</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-6 flex flex-col gap-2 border-t border-primary-foreground/15 pt-4 text-sm text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} MKLAN. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Advance Digital. Todos los derechos reservados.</p>
           <p>Atencion de lunes a sabado | Diagnostico con previa coordinacion</p>
         </div>
       </div>
